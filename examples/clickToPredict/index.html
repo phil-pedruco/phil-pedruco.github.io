@@ -5,230 +5,6 @@
     <title>Click to Predict</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style type="text/css">
-    /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
-    /* Author: Nicolas Hery - http://nicolashery.com */
-    /* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
-    /* Source: https://github.com/nicolahery/markdownpad-github */
-    /* RESET
-=============================================================================*/
-    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-    }
-    /* BODY
-=============================================================================*/
-    body {
-        font-family: Helvetica, arial, freesans, clean, sans-serif;
-        font-size: 14px;
-        line-height: 1.6;
-        color: #333;
-        background-color: #fff;
-        padding: 20px;
-        max-width: 960px;
-        margin: 0 auto;
-    }
-    body>*:first-child {
-        margin-top: 0 !important;
-    }
-    body>*:last-child {
-        margin-bottom: 0 !important;
-    }
-    /* BLOCKS
-=============================================================================*/
-    p, blockquote, ul, ol, dl, table, pre {
-        margin: 15px 0;
-    }
-    /* HEADERS
-=============================================================================*/
-    h1, h2, h3, h4, h5, h6 {
-        margin: 20px 0 10px;
-        padding: 0;
-        font-weight: bold;
-        -webkit-font-smoothing: antialiased;
-    }
-    h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
-        font-size: inherit;
-    }
-    h1 {
-        font-size: 28px;
-        color: #000;
-    }
-    h2 {
-        font-size: 24px;
-        border-bottom: 1px solid #ccc;
-        color: #000;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        font-size: 16px;
-    }
-    h5 {
-        font-size: 14px;
-    }
-    h6 {
-        color: #777;
-        font-size: 14px;
-    }
-    body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
-        margin-top: 0;
-        padding-top: 0;
-    }
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-        margin-top: 0;
-        padding-top: 0;
-    }
-    h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
-        margin-top: 10px;
-    }
-    /* LINKS
-=============================================================================*/
-    a {
-        color: #4183C4;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    /* LISTS
-=============================================================================*/
-    ul, ol {
-        padding-left: 30px;
-    }
-    ul li > :first-child, ol li > :first-child, ul li ul:first-of-type, ol li ol:first-of-type, ul li ol:first-of-type, ol li ul:first-of-type {
-        margin-top: 0px;
-    }
-    ul ul, ul ol, ol ol, ol ul {
-        margin-bottom: 0;
-    }
-    dl {
-        padding: 0;
-    }
-    dl dt {
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        padding: 0;
-        margin: 15px 0 5px;
-    }
-    dl dt:first-child {
-        padding: 0;
-    }
-    dl dt>:first-child {
-        margin-top: 0px;
-    }
-    dl dt>:last-child {
-        margin-bottom: 0px;
-    }
-    dl dd {
-        margin: 0 0 15px;
-        padding: 0 15px;
-    }
-    dl dd>:first-child {
-        margin-top: 0px;
-    }
-    dl dd>:last-child {
-        margin-bottom: 0px;
-    }
-    /* CODE
-=============================================================================*/
-    pre, code, tt {
-        font-size: 12px;
-        font-family: Consolas, "Liberation Mono", Courier, monospace;
-    }
-    code, tt {
-        margin: 0 0px;
-        padding: 0px 0px;
-        white-space: nowrap;
-        border: 1px solid #eaeaea;
-        background-color: #f8f8f8;
-        border-radius: 3px;
-    }
-    pre>code {
-        margin: 0;
-        padding: 0;
-        white-space: pre;
-        border: none;
-        background: transparent;
-    }
-    pre {
-        background-color: #f8f8f8;
-        border: 1px solid #ccc;
-        font-size: 13px;
-        line-height: 19px;
-        overflow: auto;
-        padding: 6px 10px;
-        border-radius: 3px;
-    }
-    pre code, pre tt {
-        background-color: transparent;
-        border: none;
-    }
-    kbd {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        background-color: #DDDDDD;
-        background-image: linear-gradient(#F1F1F1, #DDDDDD);
-        background-repeat: repeat-x;
-        border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
-        border-image: none;
-        border-radius: 2px 2px 2px 2px;
-        border-style: solid;
-        border-width: 1px;
-        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-        line-height: 10px;
-        padding: 1px 4px;
-    }
-    /* QUOTES
-=============================================================================*/
-    blockquote {
-        border-left: 4px solid #DDD;
-        padding: 0 15px;
-        color: #777;
-    }
-    blockquote>:first-child {
-        margin-top: 0px;
-    }
-    blockquote>:last-child {
-        margin-bottom: 0px;
-    }
-    /* HORIZONTAL RULES
-=============================================================================*/
-    hr {
-        clear: both;
-        margin: 15px 0;
-        height: 0px;
-        overflow: hidden;
-        border: none;
-        background: transparent;
-        border-bottom: 4px solid #ddd;
-        padding: 0;
-    }
-    /* TABLES
-=============================================================================*/
-    table th {
-        font-weight: bold;
-    }
-    table th, table td {
-        border: 1px solid #ccc;
-        padding: 6px 13px;
-    }
-    table tr {
-        border-top: 1px solid #ccc;
-        background-color: #fff;
-    }
-    table tr:nth-child(2n) {
-        background-color: #f8f8f8;
-    }
-    /* IMAGES
-=============================================================================*/
-    img {
-        max-width: 100%
-    }
     /* Leaflet Map 
 ============================================================================*/
     #map {
@@ -238,20 +14,21 @@
     /* communities Map 
 ============================================================================*/
     .p {
-      float: left;
-      width: 700px;
+        float: left;
+        width: 700px;
     }
     #communities {
         width: 200px;
         height: 200px;
         float: right;
     }
-    path {
+    path.minimap {
         fill: aliceblue;
         stroke: steelblue;
         stroke-width: 1px;
     }
     </style>
+    <link rel="stylesheet" href="style/clickToPredict.css" />
     <link rel="stylesheet" href="style/leaflet.css" />
     <script src="script/d3.v3.min.js"></script>
     <script src="script/topojson.js"></script>
@@ -266,11 +43,11 @@
     </blockquote>
     <p>So the the public are able to log issues directly with the government and they can see what's being done about it. As this is service is offered online it provides a fantastic source of data. A dataset of over 200,000 records was provided and each record had a summary and a description as well as a tag that categorised the issue. Other information such as number of views, votes and comments together with the date created, the source of the query (android, iPhone, web, etc.), time of the query and importantly the location. Having the location opened up all sorts of possibilities for analysis and for the visualisation of the data.
     </p>
-    <p>With the location data it was had to go past a map, but it wasn't going to be possible to visualise all of the 200,000 points so some form of aggregation was going to be required. The data was also available for 4 city's <a href="http://en.wikipedia.org/wiki/Chicago">Chicago</a>, <a href="http://en.wikipedia.org/wiki/Oakland,_California">Oakland</a>, <a href="http://en.wikipedia.org/wiki/Richmond,_Virginia">Richmond</a> and <a href="http://en.wikipedia.org/wiki/New_Haven,_Connecticut">New Haven</a> and is shown below in the map below using the wonderful <a href="http://leafletjs.com/">Leaflet</a> library.</p>
+    <p>With the location data it was had to go past a map, but it wasn't going to be possible to visualise all of the 200,000 points so some form of aggregation was required. The data was also available for 4 cities: <a href="http://en.wikipedia.org/wiki/Chicago">Chicago</a>; <a href="http://en.wikipedia.org/wiki/Oakland,_California">Oakland</a>; <a href="http://en.wikipedia.org/wiki/Richmond,_Virginia">Richmond</a>; and <a href="http://en.wikipedia.org/wiki/New_Haven,_Connecticut">New Haven</a> as shown below in the map below using the wonderful <a href="http://leafletjs.com/">Leaflet</a> library.</p>  The information in the map (the red dots) is a random sample of 5,000 from the original dataset. If you zoom in on any of the clusters you can see the amount of detail.
 
     <div id="map"></div>
 
-    <p>Given there were 4 cities it was going to be difficult to display in any meaningful information for all them on a map, so for this visualisation I focused on Chicago at it had the most data. I also decided to examined the link between demographics and the type of issue. Of course the public level of interest was also measured. In addition to the data supplied by Kaggle, demographic and GIS data was sourced from the <a href="http://www.cityofchicago.org/city/en/depts/doit/supp_info/gis_data.html">City of Chicago's</a> web site. The demographic data used in the analysis included:</p>
+    <p>The 4 cities were purposely spread across the US by the competition organisers.  Given the geographic spread (continental scale) and the amount of detail in the dataset (city scale) it wasn't going to be possible difficult to display in any meaningful information for all them all on a single map. So for this visualisation I focused on Chicago at it had the most data. I also decided to examined the link between demographics and the type of issue. Of course the public level of interest was also investigated in terms of votes and views. In addition to the data supplied by Kaggle, demographic and GIS data was sourced from the <a href="http://www.cityofchicago.org/city/en/depts/doit/supp_info/gis_data.html">City of Chicago's</a> web site. The demographic data used in the analysis included:</p>
     <ul>
         <li>Population</li>
         <li>Unemployed</li>
@@ -278,8 +55,8 @@
         <li>Poverty</li>
     </ul>
     <div id="communities"></div>
-    <p class="left">The data for Chicago was extracted using <a href="http://www.qgis.org/en/site/">QGIS</a>, the open source GIS software and the Chicago and the data was aggregated based on Census counting areas. This resulted in 77 separate geographically based communities shown to the right.</p>
-    <p class="left">However, the data was pretty raw and required some cleaning so I used the wonderful <a href="http://openrefine.org/">OpenRefine</a> tool to help reduce the missing field and increase the data available for analysis. Even after this cleaning some of the issues weren't very well represented the following 10 issues were retained for analysis in addition to votes and views:</p>
+    <p class="left">The data for Chicago was extracted using <a href="http://www.qgis.org/en/site/">QGIS</a>, the open source GIS software and the data was aggregated based on Census counting areas. This resulted in 77 separate geographically based communities shown to the right.</p>
+    <p class="left">However, the data was pretty raw and required some cleaning so I used the wonderful <a href="http://openrefine.org/">OpenRefine</a> tool to help reduce the missing fields and increase the data available for analysis. Even after this cleaning some of the issues weren't very well represented the following 10 issues were retained for analysis in addition to votes and views:</p>
     <ul>
         <li>Abandoned Vehicle</li>
         <li>Drug Dealing</li>
@@ -292,27 +69,25 @@
         <li>Trash</li>
         <li>Tree</li>
     </ul>
-    <p>So, the aim was to see if there was any relationship between the demographic data and the issues, that is, could any conclusions be drawn about which issues would be most popular based on the demographic data.</p>
-    <p>In many ways the obvious choice for this dataset was to create <a href="http://en.wikipedia.org/wiki/Choropleth_map">Choropleth maps</a>. However, it became evident that a series of maps wouldn't be the best way to investigate this dataset. With a series of maps it would be difficult see relationships between maps unless they are all plotted on the same page and also understand the colour scale. As the purpose of the visualisation was to see the relationships between demographics to expose insights a series of choropleth maps wasn't going to be the best technique.</p>
-    <p>I also investigated using <a href="http://en.wikipedia.org/wiki/Parallel_coordinates">Parallel Coordinates</a> to visualise the but question then became what to visualise. Visualising all the issues (10), the demographic data (4), the votes and views across the 77 areas would have resulted in 17 axis's and again the visualisation wouldn't have been clearly communicating relationships.</p>
+    <p>So, the aim was to see if there was any relationship between the geographic and demographic data and the issues, that is, could any conclusions be drawn about which issues would be most popular based on the geographic and demographic data.</p>
+    <p>In many ways the obvious choice for this dataset was to create <a href="http://en.wikipedia.org/wiki/Choropleth_map">Choropleth maps</a>. However, it became evident that a series of maps wouldn't be the best way to investigate this dataset. With a series of maps it would be difficult see relationships between maps unless they are all plotted on the same page and also it would be difficult to keep track of all the different colour scale. As the purpose of the visualisation was to see the relationships between geography/demographics and the issues a series of choropleth maps wasn't going to be the best technique.</p>
+    <p>I also investigated using <a href="http://en.wikipedia.org/wiki/Parallel_coordinates">Parallel Coordinates</a> to visualise relationships the but question then became what to visualise. Visualising all the issues (10), the demographic data (4), the votes and views across the 77 areas would have resulted in 17 axis's on the Parallel Coordinates plot and again the visualisation wouldn't clearly communicating relationships.</p>
     <p>In the end I decided that combining the choropleth maps with parallel coordinates would be the clearest way to see relationships. I created 2 choropleth maps, one for the issues and another for the demographics and these were linked to a parallel coordinates plot of the votes, views and demographics. This allows users to explore the geographic distributions of issues as well as potential predictors.</p>
     <p>The final visualistion can be seen <a href="clickVis.html">here</a> or you can click the image below.
     </p>
-    <a href="clickVis.html"> <img src="images/clickVis.png"></a>
-    <p>So what are we looking at. There are two choropleth maps of Chicago on the left hand side of the screen, with predictors in one and the &quot;results&quot; in another. The results can be viewed by the number of views and votes or by the issue tag. To change the mapping just click on the variable in the list to the right of the map. If you hover over a community it will highlight a line in the parallel coordinates chart on the right hand side of the screen. In this chart lines link all the predictors so you can see a summary of that areas characteristics. The maps have been created with <a href="http://d3js.org/">D3.js</a> and the parallel coordinates chart using the <a href="http://syntagmatic.github.io/parallel-coordinates/">Parallel Coordinates</a> plugin to D3.js.
-    </p>
-    <p>&quot;Any intelligent fool can make things bigger and more complex. It takes a touch of genius — and a lot of courage — to move in the opposite direction.&quot; -- Albert Einstein</p>
+    <a href="clickVis.html">
+        <img src="images/clickVis.png">
+    </a>
 
 </body>
 <script type="text/javascript">
-var map = new L.Map("map", {
-    center: [37.8, -96.9],
-    zoom: 4
-})
-    .addLayer(new L.TileLayer("http://{s}.tiles.mapbox.com/v3/examples.map-vyofok3q/{z}/{x}/{y}.png"));
-
 d3.csv("data/randomTrain.csv", function(error, data) {
-    console.log(data);
+
+    var map = new L.Map("map", {
+        center: [37.8, -96.9],
+        zoom: 4
+    })
+        .addLayer(new L.TileLayer("http://{s}.tiles.mapbox.com/v3/examples.map-vyofok3q/{z}/{x}/{y}.png"));
 
     data.forEach(function(d, i) {
         L.circle([+d.latitude, +d.longitude], 20, {
@@ -323,29 +98,21 @@ d3.csv("data/randomTrain.csv", function(error, data) {
     })
 })
 
-var width = 200;
-
-var height = 200;
-
-var svg = d3.select('#communities').append('svg').attr('width', width).attr('height', height);
-var projection = d3.geo.mercator();
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var path = d3.geo.path().projection(projection);
-
-projection
-    .scale(1)
-    .translate([0, 0]);
-
 d3.json("data/CommAreas.json", function(error, topo) {
 
-    console.log(topo);
+    var width = 200;
+    var height = 200;
 
+    var svg = d3.select('#communities').append('svg').attr('width', width).attr('height', height);
+    var projection = d3.geo.mercator();
+    var path = d3.geo.path()
+        .projection(projection);
+
+    projection
+        .scale(1)
+        .translate([0, 0]);
+        
     var areas = topojson.feature(topo, topo.objects.layer1);
-
-    //topojson.feature(topoOutside, topoOutside.objects.layer1)
 
     var b = path.bounds(areas),
         s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
@@ -359,9 +126,9 @@ d3.json("data/CommAreas.json", function(error, topo) {
         .data(areas.features)
         .enter()
         .append("path")
-        .attr("d", path)
+        .attr("class", "minimap")
+        .attr("d", path);
 });
-
 </script>
 
 </html>
