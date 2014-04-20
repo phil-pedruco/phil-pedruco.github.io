@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Click to Predict Visualisation</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="script/d3.v3.min.js"></script>
+<script src="script/topojson.js"></script>
+<script src='script/colorbrewer.js'></script>
+<script src="script/d3.parcoords.js"></script>
+<script src="script/underscore.js"></script>
+<style type="text/css">
+	@import url(style/colorbrewer.css);
+	@import url(style/d3.parcoords.css);
+    @import url(style/styleParallel.css);
+	#wrapper {
+		margin-left: auto;
+		margin-right: auto;
+		width: 1300px;
+	}
+	.feature {
+		fill: none;
+		stroke: grey;
+		stroke-width: 1px;
+  		stroke-linejoin: round;
+	}
+	.mesh {
+		fill: none;
+  		stroke: grey;
+  		stroke-width: 1px;
+  		stroke-linejoin: round;
+	}
+	h1 {
+		font-family: sans-serif;
+	}
+	p.lists {
+		margin: 5px;
+		font-family: sans-serif;
+		font-size: 12px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+  <h1>Click to Predict Visualisation</h1>
+  <p>So what are we looking at. There are two choropleth maps of Chicago on the left hand side of the screen, with predictors in one and the &quot;results&quot; in another. The results can be viewed by the number of views and votes or by the issue tag. To change the mapping just click on the variable in the list to the right of the map. If you hover over a community it will highlight a line in the parallel coordinates chart on the right hand side of the screen. In this chart lines link all the predictors so you can see a summary of that areas characteristics. The maps have been created with <a href="http://d3js.org/">D3.js</a> and the parallel coordinates chart using the <a href="http://syntagmatic.github.io/parallel-coordinates/">Parallel Coordinates</a> plugin to D3.js.
+    </p> 
+		<div id="maps" style="width:400px;float:left; margin:25px;">
+			<div id='clicks' style="width:400px;height:400px;">
+				<h1 id="clicksHeader"></h1>
+				<div id="clicksMap" style="float:left;"></div>
+				<div id="clicksList" style="float:left;"></div>
+			</div>
+			<div id='explan' style="width:400px;height:400px;">
+				<h1 id="explanHeader" style="width:400px;"></h1>
+				<div id="explanMap" style="float:left;"></div>
+				<div id="explanList" style="float:left;"></div>
+			</div>
+		</div>
+		<div id="parCoords" style="width:800px;float:left;margin:25px;">
+			<h1>Parallel Sets</h1>
+			<div id="example-progressive" class="parcoords" style="float:left;width:800px;height:700px;"></div>
+		</div>
+	</div>
+    
+</body>
+
+<script type="text/javascript">
+var width = 250,
+    height = 350;
+
+var clicksLabel = ['Votes', 'Views', 'Abandoned_Vehicle', 'Drug_Dealing', 'Graffiti', 'Pothole', 'Rodents', 'Sidewalk', 'Street_Light', 'Traffic',	'Trash', 'Tree'];
+var explanLabel = ['Population', 'Unemployed', 'Income', 'Poverty'];
+var paraData = ['Community', 'Income', 'Population', 'Poverty', 'Unemployed', 'Votes'];
+
+dashReplace = function (str) {
+	var rep = /_/;
+	var fixedStr = str.replace(rep, " ");
+	return fixedStr;
+}
+
+labels = function (x,y) {
+	d3.select("#"+x+"List").selectAll("p").data(y).enter()
+		.append("p").attr('class', 'lists').text(function (d) { return dashReplace(d); })
+		.on("click", function (d) { console.log(x,d);
+			drawMap(x,d)
+		})
+}
+
+labels('clicks', clicksLabel);
+labels('explan', explanLabel);
+
+var projection = d3.geo.mercator();
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var colours = d3.scale.quantize()
+    .range(colorbrewer.Blues[9]);
+
+var topoOutside ={};
+var area = [];
+
+d3.json("/data/CommAreas.json", function(error, topo) { console.log(topo);
+
+  topoOutside = topo;
+
+  areas = topojson.feature(topo, topo.objects.layer1).features
+
+  var votes = topojson.feature(topo, topo.objects.layer1).features;
+
+  drawMap("clicks", "Views")
+  drawMap("explan", "Population")
+
+});
+
+pcMouseover = function (d) { pc_progressive.highlight([d]); }
+
+drawMap = function (divSelect, tags) {
+
+	d3.select("#svg"+divSelect).remove();
+	d3.select("#headerText"+divSelect).remove();
+
+	d3.select("#"+divSelect+"Header").append("text").text(tags).attr("id", "headerText"+divSelect);
+
+	var pass = {};
+
+	  projection
+      .scale(1)
+      .translate([0, 0]);
+
+  	var b = path.bounds(topojson.feature(topoOutside, topoOutside.objects.layer1)),
+      	s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+      	t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+  	colours.domain(d3.extent( areas, function (d) { return d.properties[tags] } ))
+
+  	projection
+      .scale(s)
+      .translate(t);
+
+    var svg = d3.select("#"+divSelect+"Map").append("svg")
+    				.attr("id", "svg"+divSelect)
+    				.attr("width", width)
+    				.attr("height", height);
+
+  	svg.selectAll("path")
+      .data(areas).enter()
+      .append("path")
+      .attr("class", "feature")
+      .style("fill", function (d,i) { return colours(d.properties[tags]); })
+      .attr("d", path)
+      .on('mouseover', function (d) { paraData.forEach(function (e) {
+      										pass[e] = d.properties[e];
+      										})
+      								  pcMouseover(pass);
+      								  console.log(d);
+      								  console.log(pass);
+      								})
+      .on("mouseout", pc_progressive.unhighlight);
+
+  	svg.append("path")
+      .datum(topojson.mesh(topoOutside, topoOutside.objects.layer1, function(a, b) { return a !== b; }))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+}
+
+// linear color scale
+// interact with this variable from a javascript console
+var pc_progressive = d3.parcoords()("#example-progressive");
+
+// load csv file and create the chart
+d3.csv('data/CommAreas_001.csv', function(data) {
+
+	console.log(data)
+
+  var colorgen = d3.scale.category20();
+  var colors = {};
+  _(data).chain()
+    .pluck('Community')
+    .uniq()
+    .each(function(d,i) {
+      colors[d] = colorgen(i);
+    });
+
+  var color = function(d) { return colors[d.Community]; };
+
+  pc_progressive
+    .data(data)
+    .color(color)
+    .alpha(0.4)
+    .margin({ top: 24, left: 160, bottom: 12, right: 0 })
+    //.mode("queue")
+    .render()
+    .brushable()  // enable brushing
+    .interactive()  // command line mode
+
+  pc_progressive.svg.selectAll("text")
+    .style("font", "10px sans-serif");
+
+});
+
+</script>
+
+</html>
