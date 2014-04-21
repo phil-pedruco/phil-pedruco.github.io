@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Click to Predict Visualisation</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
 <link href="" rel="stylesheet">
 <script src="script/d3.v3.min.js"></script>
 <script src="script/topojson.js"></script>
@@ -17,7 +15,10 @@
 	@import url(style/d3.parcoords.css);
   @import url(style/styleParallel.css);
   @import url(style/clickToPredict.css);
-	#wrapper {
+	body {
+    max-width: 1300px !important;
+  }
+  #wrapper {
 		margin-left: auto;
 		margin-right: auto;
 		width: 1300px;
@@ -48,7 +49,8 @@
 	<div id="wrapper">
   <h1>Click to Predict Visualisation</h1>
   <p>This is a visualisation of the Click to Predict Kaggle dataset, details of which can found <a href="index.html">here</a>. It focuses in Chicago and aims to expose relationships between diferent geographic areas, demographics and issues raised through the 311 mechanism.  </p>
-  <p>So what are we looking at. There are two choropleth maps of Chicago on the left hand side of the screen, with predictors in one and the &quot;results&quot; in another. The results can be viewed by the number of views and votes or by the issue tag. To change the mapping just click on the variable in the list to the right of the map. If you hover over a community it will highlight a line in the parallel coordinates chart on the right hand side of the screen. In this chart lines link all the predictors so you can see a summary of that areas characteristics. The maps have been created with <a href="http://d3js.org/">D3.js</a> and the parallel coordinates chart using the <a href="http://syntagmatic.github.io/parallel-coordinates/">Parallel Coordinates</a> plugin to D3.js.
+  <p>So what are we looking at? There are two choropleth maps of Chicago on the left hand side of the screen, with predictors in one and the &quot;issues&quot; in another. The results can be viewed by the number of views and votes or by the issue tag. To change the mapping just click on the variable in the list to the right of the map. If you hover over a community it will highlight a line in the parallel coordinates chart on the right hand side of the screen. In this chart lines link all the predictors so you can see a summary of that areas characteristics. The maps have been created with <a href="http://d3js.org/">D3.js</a> and the parallel coordinates chart using the <a href="http://syntagmatic.github.io/parallel-coordinates/">Parallel Coordinates</a> plugin to D3.js.
+  <p>You can use brushes on the axis's of the parallel coordinates highlight specific areas which allows you to really examine the relationships between predictors and how often people vote for issues.</p>
     </p> 
 		<div id="maps" style="width:400px;float:left; margin:25px;">
 			<div id='clicks' style="width:400px;height:400px;">
