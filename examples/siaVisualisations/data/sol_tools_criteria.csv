@@ -1,0 +1,34 @@
+Solutions,Tools,Criteria
+Pits and Pipes,RAFTS / RORB,Flooding
+Pits and Pipes,RAFTS / RORB,Hydr. Regime
+Pits and Pipes,1D / 2D Hydraulic,Flooding
+Pits and Pipes,1D / 2D Hydraulic,Hydr. Regime
+Pits and Pipes,MUSIC,Stormwater Quality
+Retarding Basins,RAFTS / RORB,Flooding
+Retarding Basins,RAFTS / RORB,Hydr. Regime
+Retarding Basins,1D / 2D Hydraulic,Flooding
+Wetlands,MUSIC,Stormwater Quality
+Wetlands,MUSIC,Demand
+Wetlands,MUSIC,Hydr. Regime
+Bioretention,MUSIC,Stormwater Quality
+Bioretention,MUSIC,Demand
+Bioretention,MUSIC,Hydr. Regime
+Infiltration,MUSIC,Stormwater Quality
+Infiltration,MUSIC,Demand
+Infiltration,MUSIC,Hydr. Regime
+Stormwater Harvesting,MUSIC,Stormwater Quality
+Stormwater Harvesting,MUSIC,Demand
+Stormwater Harvesting,MUSIC,Hydr. Regime
+Stormwater Harvesting,Spreadsheet,Demand
+Stormwater Harvesting,Spreadsheet,Wastewater Volumes
+Stormwater Harvesting,Source,Supply Security
+Rainwater tanks,MUSIC,Stormwater Quality
+Rainwater tanks,MUSIC,Demand
+Rainwater tanks,MUSIC,Hydr. Regime
+Rainwater tanks,Source,Supply Security
+Rainwater tanks,Urban Developer,Flooding
+Rainwater tanks,Urban Developer,Demand
+Demand Management,Spreadsheet,Demand
+Demand Management,Spreadsheet,Wastewater Volumes
+Reclaimed Wastewater,Spreadsheet,Demand
+Reclaimed Wastewater,Spreadsheet,Wastewater Volumes

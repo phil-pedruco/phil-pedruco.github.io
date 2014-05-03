@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Parallel Sets</title>
+    <style>
+    @import url(style/d3.parsets.css);
+    text {
+        font: 20px sans-serif;
+        color: #4F5650;
+        text-rendering: optimizeLegibility;
+    }
+    h1 {
+        font:48px"Arial";
+        color: #4F5650;
+        font-weight:bold;
+        padding: 10px;
+        margin: 5px;
+    }
+    #wrapper {
+        width:900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #svgTemp {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+    #svgTemp2 {
+        position: absolute !important;
+        top: -8999px !important;
+        left: -8999px !important;
+    }
+    </style>
+    <script src="script\d3.v3.min.js"></script>
+    <script src="script\d3.parsets.js"></script>
+</head>
+
+<body>
+
+    <svg id="svgTemp"></svg>
+    <svg id="svgTemp2"></svg>
+
+    <div id="wrapper">
+    	<h1>Parallel Sets Visualisation</h1>
+        <div id="solvis"></div>
+    </div>
+
+</body>
+
+<script>
+function solChart() {
+    var chart = d3.parsets()
+        .tension(0.5)
+        .dimensions(["Solutions", "Tools", "Criteria"]);
+
+    var vis = d3.select("#solvis").append("svg")
+        .attr("width", chart.width())
+        .attr("height", chart.height());
+
+    d3.csv("data/sol_tools_criteria.csv", function(csv) {
+        vis.datum(csv).call(chart);
+    });
+};
+solChart();
+</script>
+
+</html>

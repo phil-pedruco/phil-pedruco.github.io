@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Chord Diagram</title>
+    <link href="" rel="stylesheet">
+    <style>
+    
+    #svgTemp {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+    #svgTemp2 {
+        position: absolute !important;
+        top: -8999px !important;
+        left: -8999px !important;
+    }
+    text {
+        font: 20px sans-serif;
+        color: #4F5650;
+        text-rendering: optimizeLegibility;
+    }
+    h1 {
+        font:48px"Arial";
+        color: #4F5650;
+        font-weight:bold;
+        padding: 10px;
+        margin: 5px;
+    }
+    #wrapper {
+        width:900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    </style>
+    <script src="script\d3.v3.min.js"></script>
+    <script src="script\chordVis.js"></script>
+
+</head>
+
+<body>
+
+    <svg id="svgTemp"></svg>
+    <svg id="svgTemp2"></svg>
+
+    <div id="wrapper">
+
+        <h1>Trade-offs and Interaction between Objectives</h1>
+        <div style="width:650px;margin-left:auto;margin-right:auto; ">
+            <div id="chord_objectives"></div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+chordVis("data/obMatrix.csv", "data/objectives.csv", "objectives")
+</script>
+
+
+</html>
