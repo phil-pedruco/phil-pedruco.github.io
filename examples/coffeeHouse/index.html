@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coffeee House</title>
+    <script src="script/d3.js"></script>
+    <script src="script/nv.d3.js"></script>
+    <script src="script/tooltip.js"></script>
+    <script src="script/utils.js"></script>
+    <script src="script/models/legend.js"></script>
+    <script src="script/models/axis.js"></script>
+    <script src="script/models/multiBar.js"></script>
+    <script src="script/models/multiBarChart.js"></script>
+    <script src="script/stream_layers.js"></script>
+
+    <style type="text/css">
+    body {
+        /*overflow-y:scroll;*/
+    }
+    h1 {
+        color: #ff0000;
+        text-align: center;
+    }
+    h2 {
+        font-family: sans-serif;
+        text-align: center;
+    }
+    aside {
+        font: 12px sans-serif;
+    }
+    text {
+        font: 12px sans-serif;
+    }
+    #chart1 {
+        height: 500px;
+        margin: 10px;
+        min-width: 100px;
+        min-height: 100px;
+        /*
+  Minimum height and width is a good idea to prevent negative SVG dimensions...
+  For example width should be =< margin.left + margin.right + 1,
+  of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+*/
+    }
+    .overlay {
+        fill: none;
+        pointer-events: all;
+    }
+    .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+    .x.axis path {
+        display: none;
+    }
+    .line {
+        fill: none;
+        clip-path: url(#clip);
+    }
+    .rLine {
+        fill: #CDC9C9;
+        stroke: #CDC9C9;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+        clip-path: url(#clip);
+    }
+    .brush {
+        stroke: #fff;
+        fill-opacity: .125;
+        shape-rendering: crispEdges;
+    }
+    #xInterceptor {
+        fill: none;
+        stroke: #000;
+        stroke-width: 1px;
+        opacity: 0.5;
+        shape-rendering: crispEdges;
+    }
+    .wrapper {
+        width: 960px;
+        margin: auto;
+    }
+    </style>
+    <link href="script/nv.d3.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Worst recovery in history</h1>
+        <div id="chart">
+            <h2>Cumulative GDP change from pre-recession peak</h2>
+        </div>
+        <aside>GDP at market prices, Chained Volume Measure. Wars excluded. Source: ONS, OBR and NIESR</aside>
+    </div>
+    <div class="wrapper">
+        <h1>UK state spending</h1>
+        <div id="chart1" class='with-3d-shadow with-transitions'>
+            <svg></svg>
+        </div>
+        <aside>Actual and projected state spending. Source: HM Treasury (PESA 2012, 2011, 2010) Transfer of Royal Mail Pension Plan excluded. Figures in real terms (i.e. 2013-14 prices</aside>
+    </div>
+</body>
+<script type="text/javascript" src="script/recovery.js"></script>
+<script type="text/javascript" src="script/spend.js"></script>
+
+</html>
