@@ -87,7 +87,7 @@ d3.csv("data/randomTrain.csv", function(error, data) {
         center: [37.8, -96.9],
         zoom: 4
     })
-        .addLayer(new L.TileLayer("http://{s}.tiles.mapbox.com/v3/examples.map-vyofok3q/{z}/{x}/{y}.png"));
+        .addLayer(new L.TileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png"));
 
     data.forEach(function(d, i) {
         L.circle([+d.latitude, +d.longitude], 20, {
