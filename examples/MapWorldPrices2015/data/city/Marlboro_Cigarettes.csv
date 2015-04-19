@@ -1,0 +1,33 @@
+Country,City,2014,2015,% of NY
+01. Australia,Melbourne,17.65,18.45,142%
+02. Australia,Sydney,17.65,16.92,130%
+03. Brazil,Rio de Janeiro,2.49,2.15,17%
+04. Brazil,Sao Paulo,3.05,2.15,17%
+05. Canada,Ottawa,9.11,8.70,67%
+06. Canada,Toronto,9.11,8.70,67%
+07. China,Beijing,2.91,3.26,25%
+08. China,Shanghai,2.75,2.61,20%
+09. France,Paris,9.59,7.60,58%
+10. Germany,Berlin,6.91,5.84,45%
+11. Germany,Frankfurt,6.99,5.64,43%
+12. Hong Kong,Hong Kong,6.96,7.22,56%
+13. India,Bangalore,2.38,3.22,25%
+14. India,Mumbai,3.00,2.74,21%
+15. India,New Delhi,2.52,3.21,25%
+16. Indonesia,Jakarta,1.65,1.35,10%
+17. Japan,Tokyo,4.32,3.74,29%
+18. Malaysia,Kuala Lumpur,3.66,3.50,27%
+19. Mexico,Mexico City,3.38,3.02,23%
+20. New Zealand,Auckland,14.61,15.81,122%
+21. New Zealand,Wellington,14.61,15.05,116%
+22. Philippines,Manila,1.42,1.36,10%
+23. Russia,Moscow,1.87,1.35,10%
+24. Singapore,Singapore,9.53,9.46,73%
+25. South Africa,Cape Town,3.22,2.81,22%
+26. South Africa,Johannesburg,3.40,2.89,22%
+27. Switzerland,Zurich,8.96,8.29,64%
+28. United Kingdom,Edinburgh,13.25,11.87,91%
+29. United Kingdom,London,13.25,13.35,103%
+30. United States,Boston,10.00,10.00,77%
+31. United States,Chicago,11.00,11.00,85%
+32. United States,New York City,13.00,13.00,100%
