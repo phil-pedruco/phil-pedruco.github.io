@@ -1,6 +1,6 @@
 function stack() {
   var stack = {},
-      size = [1280, 700],
+      size = [1280, 800],
       fontSize = 32,
       sectionHeight,
       windowHeight,
