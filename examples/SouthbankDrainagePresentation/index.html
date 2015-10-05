@@ -664,7 +664,7 @@ var now = [{
 }, {
     x: 230,
     y: 0.52,
-    label: 'high Tide'
+    label: 'high tide'
 }, {
     x: 230,
     y: 0.9,
@@ -960,7 +960,7 @@ function histo() {
         x = d3.scale.linear(),
         y = d3.scale.linear();
 
-    var labels = svg.append("text").style('font-size', 16);
+    var labels = svg.append("text").style('font-size', '18px');
 
     d3.csv('data/output.csv', function(error, output) {
 
