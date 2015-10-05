@@ -1,0 +1,268 @@
+body {
+    overflow-y: scroll;
+}
+
+text {
+    font: 10px sans-serif;
+    color: #4F5650;
+}
+
+.wrapperLeft {
+    width: 45%;
+    float: left;
+}
+
+.wrapperRight {
+    width: 45%;
+    float: right;
+}
+
+.li_002 {
+    font-size: 75%;
+}
+.smallTableText {
+  font-size: 50%;
+}
+
+h1 {
+    font: 200% sans-serif;
+    color: #005581;
+    text-align: left;
+    margin-top: 0%;
+    position: relative;
+    top: 5%;
+}
+
+h2 {
+    font-family: sans-serif;
+    font-size: 150%;
+    text-align: left;
+    /*position:absolute;top:15%;*/
+}
+
+h3 {
+    font: 130% sans-serif;
+    color: #4F5650;
+    text-align: left;
+}
+
+p {
+    font: 100% sans-serif;
+    text-align: left;
+    margin: 5px 0px 5px 0px;
+}
+
+q {
+    font: 14px sans-serif;
+    font-style: italic;
+}
+a {
+  color: #1EBECA;
+}
+
+li {
+    margin: 10px 0px 10px 0px;
+}
+
+table th {
+    font-weight: bold;
+    /*background-color:rgba(0, 0, 0, 0);*/
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 3px 3px;
+}
+
+table tr {
+    border-top: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+table tr:nth-child(2n) {
+    background-color: rgba(248, 248, 248, 0.7);
+}
+
+
+/*td {
+  padding-right: 5px;
+}*/
+
+.surface,
+.wall {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+    shape-rendering: crispEdges;
+}
+
+.obvert,
+.invert {
+    fill: none;
+    stroke: #8E9590;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.levels {
+    fill: none;
+    stroke: #005581;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.y_axis path,
+.y_axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.y_axis text {
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    stroke-width: 0px;
+}
+
+.values,
+.yAxis {
+    font-family: sans-serif;
+    font-size: 10px;
+    stroke-width: 0px;
+}
+
+
+/*  stroke:blue;
+  fill:none;
+}*/
+
+#results {
+    width: 750px;
+    /*margin: 25px;*/
+    float: left;
+}
+
+#map_div {
+    width: 700px;
+    height: 600px;
+    margin: 0px;
+    float: left;
+}
+
+#map {
+    width: 700px;
+    height: 600px;
+    margin: 0px;
+}
+
+#plot_div {
+    width: 250px;
+    height: 200px;
+    margin: 0px;
+    float: left;
+}
+
+#plot {
+    width: 300px;
+    height: 250px;
+    margin: 0px;
+}
+
+#event {
+    /* causes problems */
+    width: 150px;
+    height: 400px;
+    margin: 0px;
+    float: left;
+}
+
+#timeseries {
+    float: left;
+}
+
+#labelsDiv {
+    float: left;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+#plotLegend {
+    float: left;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+#checksDiv {
+    float: left;
+    width: 300px;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+.timeseries path {
+    stroke-width: 2px;
+}
+
+.timeseries circle {
+    stroke: white;
+}
+
+.timeseries text {
+    fill: white;
+}
+
+.SvgOverlay,
+.SvgOverlay svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.SvgOverlay path {
+    stroke: Grey;
+    stroke-width: 2px;
+    fill-opacity: .5;
+}
+
+.tooltip {
+    background-color: linen;
+    opacity: 0.75;
+    stroke: black;
+}
+
+.timeseries_path {
+    stroke: blue;
+    stroke-width: 1px;
+    fill: none;
+}
+
+#radios {
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+#plot .dygraph-label {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+#plot .dygraph-title {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#plot .dygraph-axis-label {
+    font-family: sans-serif;
+    font-size: 12px;
+}

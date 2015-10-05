@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Southbank Drainage Presentation</title>
+<meta name="viewport" content="width=device-width">
+<style>
+/*@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i);*/
+
+section {
+    background: #000;
+    color: #4F5650;
+    padding: 2em;
+    font-family: sans-serif;
+    background-image: url("../images/BMT.WBM.Logo.jpg"), url("../images/nautilus.png");
+    background-repeat: no-repeat;
+    background-position: 2% 95%, 100% 100%;
+    background-size: 15%, 30%;
+    background-color: #fff;
+}
+
+#follow {
+    background: none;
+}
+
+.grey {
+    color: #777;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="style/Qgis2threejs.css">
+<link rel="stylesheet" type="text/css" href="style/wbm.css" />
+<link rel="stylesheet" href="style/leaflet.css" />
+<link rel="stylesheet" type="text/css" href="style/own_style.css">
+<link rel="stylesheet" href="style/label.css" />
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="lib/leaflet.js"></script>
+<script src="lib/three.min.js"></script>
+<script src="lib/Qgis2threejs.js"></script>
+<script src="lib/OrbitControls.js"></script>
+<script src="js/leaflet-hash.js"></script>
+<script src="js/label.js"></script>
+<script src="js/Autolinker.min.js"></script>
+<script src="data/exp_Southbank.js"></script>
+<script src="data/exp_Drainage.js"></script>
+<script src="data/exp_PortPhillipBay.js"></script>
+<script src="data/exp_YarraRiver.js"></script>
+<section style="padding-top:5em;">
+    <img src="images\wbmKnowledge.png" style="width: 30%;position:absolute;top:2%;left:2%;">
+    <h1>Southbank Stormwater Infrastructure Assessment</h1>
+    <h2 style="color:#8E9590; font-weight:normal;">Joel Leister & Philip Pedruco</h2>
+    <h3>City of Melbourne, 2015</h3>
+    <br>
+    <!--img src="images/southbank_banner.jpg" style="width:60%;position:absolute;top:60%;left:5%;" /-->
+</section>
+<section style="">
+    <h1>Project Background</h1>
+    <ul>
+        <li>Aims to quantify flood risk in Southbank</li>
+        <ul>
+            <li>Now and in the future</li>
+        </ul>
+        <li>Climate Change</li>
+        <li>Involved</li>
+        <ul>
+            <li>Research</li>
+            <li>Engineering</li>
+            <li>Environment</li>
+        </ul>
+    </ul>
+</section>
+<section style="">
+    <h1>Southbank</h1>
+    <img src="images\Southbank_transparent.png" style="width: 85%;position:absolute;top:1%;">
+    <!--position:absolute;top:2%;left:2%;"-->
+</section>
+<section id='histogramSection'>
+    <h1 style="">Southbank Topography</h1>
+    <div>
+        <div class='wrapperLeft'>
+            <ul>
+                <li>Low lying</li>
+                <ul>
+                    <li class="li_002">-6.8 to 13.5 mAHD</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>High points</li>
+                <ul>
+                    <li class="li_002">Along St. Kilda Road</li>
+                </ul>
+                <li>Low points</li>
+                <ul>
+                    <li class="li_002">Queensbridge Street & Clarendon Street</li>
+                </ul>
+                <li><a href="southbank_topography.html" target="_blank">Topography</a>
+            </ul>
+            </ul>
+        </div>
+        <div class='wrapperRight' id='histogram' style="height: 100%">
+        </div>
+    </div>
+</section>
+<section style="">
+    <h1>Southbank in Number</h1>
+    <table style="padding-left:5em;">
+        <thead>
+            <tr>
+                <th align="left">Metric</th>
+                <th align="right">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">Area</td>
+                <td align="right">1.5km<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td align="left">Residential population</td>
+                <td align="right">11,303</td>
+            </tr>
+            <tr>
+                <td align="left">Number of workers</td>
+                <td align="right">33,644</td>
+            </tr>
+            <tr>
+                <td align="left">Number of dwellings</td>
+                <td align="right">7,773</td>
+            </tr>
+            <tr>
+                <td align="left">Most prominent housing type - Apartments</td>
+                <td align="right">94%</td>
+            </tr>
+            <tr>
+                <td align="left">Office space (m<sup>2</sup>)</td>
+                <td align="right">457,188</td>
+            </tr>
+            <tr>
+                <td align="left">Business locations with employment</td>
+                <td align="right">892</td>
+            </tr>
+            <tr>
+                <td align="left">Commercial car park spaces</td>
+                <td align="right">14,282</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section style="">
+    <h1>Future Southbank</h1>
+    <table tyle="padding-left:5em;">
+        <thead>
+            <tr>
+                <th>Southbank</th>
+                <th align="center">2016</th>
+                <th align="center">2021</th>
+                <th align="center">2026</th>
+                <th align="center">2031</th>
+                <th align="center">2036</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Residential population</td>
+                <td align="center">17,821</td>
+                <td align="center">20,306</td>
+                <td align="center">24,891</td>
+                <td align="center">27,985</td>
+                <td align="center">32,262</td>
+            </tr>
+            <tr>
+                <td>Change in population (5 years)</td>
+                <td align="center">-</td>
+                <td align="center">2,485</td>
+                <td align="center">4,585</td>
+                <td align="center">3,094</td>
+                <td align="center">4,277</td>
+            </tr>
+            <tr>
+                <td>% change in population (5 years)</td>
+                <td align="center">-</td>
+                <td align="center">14%</td>
+                <td align="center">23%</td>
+                <td align="center">12%</td>
+                <td align="center">15%</td>
+            </tr>
+            <tr>
+                <td>Southbank’s share of municipality’s population</td>
+                <td align="center">13%</td>
+                <td align="center">13%</td>
+                <td align="center">14%</td>
+                <td align="center">15%</td>
+                <td align="center">15%</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section id='leafletMap' style="padding:.35em;">
+    <h1>Southbank Source of Flood Risk</h1>
+    <div style="width:20%;float:left;">
+        <ul>
+            <li>Yarra River (Fluvial)</li>
+            <li>Port Phillip (Tidal)</li>
+            <li>Southbank (Overland)</li>
+        </ul>
+    </div>
+    <div id="map" style="float:left;"></div>
+</section>
+<section style="">
+    <h1>Fluvial Flooding</h1>
+    <div>
+        <div class='wrapperLeft'>
+            <ul>
+                <li>Yarra River 100 year ARI Flood Level</li>
+                <ul>
+                    <li class='li_002'>1.6 mAHD</li>
+                </ul>
+                <li>1934 Flood</li>
+                <ul>
+                    <li class='li_002'>18 people dead</li>
+                    <li class='li_002'>6000 homeless</li>
+                    <li class='li_002'>Single lake from South Yarra to Warrandyte</li>
+                </ul>
+            </ul>
+        </div>
+        <div class='wrapperRight'>
+            <img src="images\yarra1934flood.jpg" style="width:70%;">
+            <p style="font-size: 50%"><a href="http://www.herringisland.org/about.htm">Picture courtesy Heron Island Park</a></p>
+            <img src="images\abbotsfordFlood.jpg" style="width:70%;">
+            <p style="font-size: 50%"><a href="http://collections.museumvictoria.com.au/items/1460487">Picture courtesy of Kodak Australia from Museum Victoria Collections</a></p>
+        </div>
+    </div>
+</section>
+<section style="">
+    <h1>Tidal Flooding</h1>
+    <div>
+        <div class='wrapperLeft'>
+            <ul>
+                <li>Port Phillip Bay</li>
+                <ul>
+                    <li class='li_002'>Mean Sea Level - 0 mAHD</li>
+                    <li class='li_002'>Highest Astronomical Tide - 0.52 mAHD</li>
+                    <li class='li_002'>100 Year ARI Storm Surge - 0.9 mAHD</li>
+                </ul>
+                <li>June 2014 Flood</li>
+                <ul>
+                    <li class='li_002'>Pony Fish Island Flooded</li>
+                    <li class='li_002'>Queensbridge Street Closed</li>
+                </ul>
+            </ul>
+        </div>
+        <div class='wrapperRight'>
+            <img src="images\QueensbridgeStTidal.jpg" style="width:70%;">
+            <p style="font-size: 50%"><a href="http://www.heraldsun.com.au/news/national/wild-storms-hit-victoria-and-theres-more-on-the-way/story-fni0xqrb-1226965934613?sv=a8455b8532959eb2bccecb1fd476b24b">Picture Nicole Garmston, courtesy of Heard Sun</a></p>
+            <img src="images\yarra-river-flooded_southbank.jpg" style="width:70%;">
+            <p style="font-size: 50%"><a href="http://www.heraldsun.com.au/news/wild-and-windy-weather-to-hit-victoria/story-e6frf95f-1226086662068">Picture by Jay Town, courtesy of Heard Sun</a></p>
+        </div>
+    </div>
+</section>
+<section style="">
+    <h1>Overland Flooding</h1>
+    <div>
+        <div class='wrapperLeft'>
+            <ul>
+                <li>Southbank</li>
+                <ul>
+                    <li class='li_002'>Failure of the local stormwater system</li>
+                    <li class='li_002'>Exacerbated by high level of impervious</li>
+                    <li class='li_002'>Influenced by the outlet conditions</li>
+                </ul>
+                <li>Recent</li>
+                <ul>
+                    <li class='li_002'>March 2010</li>
+                    <li class='li_002'>June 2015</li>
+                </ul>
+            </ul>
+        </div>
+        <div class='wrapperRight' style="position:absolute;top: 10%;left: 55%">
+            <img src="images\clarendonSt.jpg" style="width:45%;">
+            <p style="font-size: 50%">Clarendon Street May 2015, Picture Michael South</p>
+            <img src="images\trams.jpg" style="width:45%;">
+            <p style="font-size: 50%">Tram Stop Clarendon and Whiteman May 2015, Picture by Joel Leister</p>
+            <img src="images\march2010.jpg" style="width:45%;">
+            <p style="font-size: 50%">Clarendon and Whiteman March 2010, Picture by Philip Pedruco</p>
+        </div>
+    </div>
+</section>
+<section id='stormwaterSection' style="">
+    <h1>Southbank Stormwater System</h1>
+    <ul>
+        <li>Currently tidelocked at times</li>
+    </ul>
+    <div id='stormwater' style='width:80%;height:60%;margin:auto'></div>
+</section>
+<section style="">
+    <h1>Modelled Events</h1>
+    <div>
+        <div class="wrapperLeft">
+            <ul>
+                <li>A flood model of Southbank was developed</li>
+                <ul>
+                    <li class='li_002'>Topography & Drainage</li>
+                    <li class='li_002'>Rainfall - Design Events</li>
+                    <li class='li_002'>Tidal and Fluvial Yarra River levels</li>
+                </ul>
+                <li>Run for different combinations of:</li>
+                <ul>
+                    <li class='li_002'>Rainfall hence runoff from Southbank</li>
+                    <li class='li_002'>Yarra River levels</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="wrapperRight" style="position:absolute;top:5%;left:50%">
+            <table class='smallTableText'>
+                <thead>
+                    <tr>
+                        <th>Southbank - Overland</th>
+                        <th>Yarra River - Fluvial</th>
+                        <th>Port Phillip - Tidal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 in 5 year</td>
+                        <td>-</td>
+                        <td>Mean Sea Level</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 100 year</td>
+                        <td>-</td>
+                        <td>Mean Sea Level</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 5 year</td>
+                        <td>-</td>
+                        <td>Highest Astronomical Tide</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 100 year</td>
+                        <td>-</td>
+                        <td>Highest Astronomical Tide</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 5 year</td>
+                        <td>-</td>
+                        <td>1 in 100 year Surge</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 100 year</td>
+                        <td>-</td>
+                        <td>1 in 100 year Surge</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 5 year</td>
+                        <td>1 in 100 year Yarra River</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>1 in 100 year</td>
+                        <td>1 in 100 year Yarra River</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20_pc_MSL_Depth.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1_pc_MSL_Depth.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20_pc_HAT_Depth.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1_pc_HAT_Depth.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20_pc_Surge_Depth.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1_pc_Surge_Depth.jpg" style="width:75%;">
+</section>
+<section>
+    <h1>Opportunities - Now</h1>
+    <div>
+        <div class="wrapperLeft">
+            <ul>
+                <li>Traditional</li>
+                <ul>
+                    <li class='li_002'>Limited in the short term</li>
+                    <li class="li_002">Pumps and Pipes</li>
+                </ul>
+                <li>Source control measures</li>
+                <ul>
+                    <li class="li_002">Opportunities - Requires different thinking</li>
+                    <li class="li_002">Storage tanks</li>
+                    <li class="li_002">Infiltration</li>
+                    <li class="li_002">Wetlands</li>
+                </ul>
+            </ul>
+        </div>
+        <div>
+            <table class='smallTableText'>
+                <thead>
+                    <tr>
+                        <th>Tradition / IWCM</th>
+                        <th>Location</th>
+                        <th>Measure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IWCM</td>
+                        <td>Victoria Barracks</td>
+                        <td>Storage Tank / WSUD Carparks</td>
+                    </tr>
+                    <tr>
+                        <td>IWCM</td>
+                        <td>Power Street Loop</td>
+                        <td>Surface Storage - Wetland</td>
+                    </tr>
+                    <tr>
+                        <td>IWCM</td>
+                        <td>Crown Entertainment Precinct and MECC</td>
+                        <td>Storage Tank</td>
+                    </tr>
+                    <tr>
+                        <td>IWCM</td>
+                        <td>Southbank Boulevard</td>
+                        <td>Infiltration</td>
+                    </tr>
+                    <tr>
+                        <td>IWCM</td>
+                        <td>93 – 115 Kavanagh Street</td>
+                        <td>Storage Tanks</td>
+                    </tr>
+                    <tr>
+                        <td>Traditional</td>
+                        <td>Clarendon Street</td>
+                        <td>Pipe Augmentation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20_pc_WSUD_Impact.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1_pc_WSUD_Impact.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20_pc_pipe_Impact.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1_pc_pipe_Impact.jpg" style="width:75%;">
+</section>
+<section>
+    <h1>Future Conditions - <br>Climate Change</h1>
+    <div>
+        <div class="wrapperLeft">
+            <ul>
+                <li>Rainfall</li>
+                <ul>
+                    <li>Southbank Overland</li>
+                    <li>Yarra River</li>
+                </ul>
+                <li>Sea level rise</li>
+                <ul>
+                    <li>Port Phillip Bay</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="wrapperRight" style="position:absolute;top:15%;left:50%">
+            <table class='smallTableText' >
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rainfall Intensity</td>
+                        <td>Increase 32%<sup>a</sup></td>
+                        <td>Melbourne Water Technical Specification</td>
+                    </tr>
+                    <tr>
+                        <td>Rainfall Intensity</td>
+                        <td>Increase 15%<sup>b</sup></td>
+                        <td><a href="http://www.climatechangeinaustralia.gov.au/en/climate-projections/climate-futures-tool/introduction-climate-futures/">CSIRO Future Climates</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mean Sea Level</td>
+                        <td>0.8m AHD</td>
+                        <td><a href="http://planningschemes.dpcd.vic.gov.au/schemes/combined-ordinances/VPPs_All_Clauses.pdf">State Planning Policy Framework</a></td>
+                    </tr>
+                    <tr>
+                        <td>HAT</td>
+                        <td>1.36m AHD</td>
+                        <td><a href="http://trove.nla.gov.au/work/11752665?selectedversion=NBD10834722">Black, Coleman and Hatton (1990)</a></td>
+                    </tr>
+                    <tr>
+                        <td>100 y Storm Surge</td>
+                        <td>2.04 m AHD</td>
+                        <td><a href="http://www.climatechange.vic.gov.au/__data/assets/pdf_file/0010/152488/CSIROReportPortPhillipBayv2.pdf"></a>McInnes, O'Grady and Macadam (2009)</td>
+                    </tr>
+                    <tr>
+                        <td>Yarra River 100y Flood</td>
+                        <td>2.40 m AHD</td>
+                        <td>Melbourne Water Technical Specification</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 30%"><sup>a</sup>Based on the IPCC fourth assessment report</p>
+            <p style="font-size: 30%"><sup>b</sup>5% for every 1ºC rise in annual mean surface temperature</p>
+        </div>
+    </div>
+</section>
+<section id='futureStormwaterSection'>
+    <h1>Future Southbank Stormwater System</h1>
+    <ul>
+        <li>Mostly tidelocked</li>
+    </ul>
+    <div id='futureStormwater' style='width:80%;height:60%;margin:auto'></div>
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20pc_CC_RF_15pc.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1pc_CC_RF_15pc.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20pc_CC_RF_32pc.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1pc_CC_RF_32pc.jpg" style="width:75%;">
+</section>
+<section>
+    <h1>Opportunities (Future Climate)</h1>
+    <div>
+        <table class='smallTableText'>
+            <thead>
+                <tr>
+                    <th>Tradition / IWCM</th>
+                    <th>Location</th>
+                    <th>Measure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IWCM</td>
+                    <td>Victoria Barracks</td>
+                    <td>Storage Tank / WSUD Carparks</td>
+                </tr>
+                <tr>
+                    <td>IWCM</td>
+                    <td>Power Street Loop</td>
+                    <td>Surface Storage - Wetland</td>
+                </tr>
+                <tr>
+                    <td>IWCM</td>
+                    <td>Crown Entertainment Precinct and MECC</td>
+                    <td>Storage Tank</td>
+                </tr>
+                <tr>
+                    <td>IWCM</td>
+                    <td>Southbank Boulevard</td>
+                    <td>Infiltration</td>
+                </tr>
+                <tr>
+                    <td>IWCM</td>
+                    <td>93 – 115 Kavanagh Street</td>
+                    <td>Storage Tanks</td>
+                </tr>
+                <tr>
+                    <td>Traditional</td>
+                    <td>Clarendon Street</td>
+                    <td>Pipe Augmentation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20pc_CC_RF_32_WSUD.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1pc_CC_RF_32_WSUD.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\20pc_CC_RF_32_pipe.jpg" style="width:75%;">
+</section>
+<section style="text-align:center;padding:.35em;">
+    <img src="images\1pc_CC_RF_32_pipe.jpg" style="width:75%;">
+</section>
+<section>
+    <h1>Recommendations</h1>
+    <ul>
+        <li>Now (0 – 15 years)</li>
+        <ul>
+            <li class="li_002">Planning Requirements (on site detention)</li>
+            <li class="li_002">Integrate WSUD and IWCM measures into developments on public and Council land</li>
+        </ul>
+        <li>Medium Term (15 – 50 years)</li>
+        <ul>
+            <li class="li_002">Pumped stormwater system</li>
+        </ul>
+        <li>Long Term (50 years and beyond)</li>
+        <ul>
+            <li class="li_002">Sea wall / barrage</li>
+        </ul>
+    </ul>
+</section>
+<section>
+    <h1>Summary</h1>
+    <div>
+        <div class="wrapperLeft">
+            <ul>
+                <li>Current Climate</li>
+                <ul>
+                    <li class="li_002">Existing flooding overland (+ Yarra River levels)</li>
+                    <li class="li_002">Source control measures are most effective</li>
+                </ul>
+                <li>Interim Climate</li>
+                <ul>
+                    <li class="li_002">Sea levels will rise</li>
+                    <li class="li_002">Pumped stormwater system required</li>
+                </ul>
+        </div>
+        <div class="wrapperRight">
+            <li>Future Climate</li>
+            <ul>
+                <li class="li_002">Flooding dominated by levels Yarra River levels</li>
+                <li class="li_002">Source control measures remain effective</li>
+                <li class="li_002">Sea walls or barrage for the Yarra need to be considered</li>
+            </ul>
+            </ul>
+        </div>
+    </div>
+</section>
+<section style="padding:5em 5em;">
+    <h1>Thankyou and Questions</h1>
+    <p><a href="mailto:Joel.Leister@bmtwbm.com.au?Subject=Southbank%20Flooding%20and%20Climate%20Change" target="_top">Joel Leister</a> and <a href="mailto:philip.pedruco@bmtwbm.com.au?Subject=Southbank%Flooding%and%Climate%Change" target="_top">Philip Pedruco</a>
+
+        <br>Tel: 03 8620 6100
+        <br>Presentation built with <a style="color:#777;text-decoration:none;" href="https://github.com/mbostock/stack">Stack.</a>
+</section>
+<script src="lib/d3.min.js"></script>
+<script src="lib/stack.v1.js"></script>
+<script src="js/map.js"></script>
+<script>
+var now = [{
+    x: 230,
+    y: 0.0,
+    label: 'mean sea level'
+}, {
+    x: 230,
+    y: 0.52,
+    label: 'high Tide'
+}, {
+    x: 230,
+    y: 0.9,
+    label: '100 year storm surge'
+}, {
+    x: 230,
+    y: 1.6,
+    label: '100 year Yarra River'
+}];
+
+var future = [{
+    x: 230,
+    y: 0.8,
+    label: 'mean sea level'
+}, {
+    x: 230,
+    y: 1.36,
+    label: 'high tide'
+}, {
+    x: 230,
+    y: 2.04,
+    label: '100 year storm surge'
+}, {
+    x: 230,
+    y: 2.40,
+    label: '100 year Yarra River'
+}];
+
+var mystack = stack()
+    .on("activate", activate)
+    .on("deactivate", deactivate);
+
+var section = d3.selectAll("section"),
+    follow = d3.select("#follow"),
+    followAnchor = d3.select("#follow-anchor"),
+    histoNode = d3.select("#histogramSection"),
+    leafletNode = d3.select("#leafletMap"),
+    stormwaterNode = d3.select('#stormwaterSection'),
+    futureStormwaterNode = d3.select('#futureStormwaterSection'),
+    lorenz = d3.select("#lorenz"),
+    followIndex = section[0].indexOf(follow.node()),
+    histogramIndex = section[0].indexOf(histoNode.node()),
+    leafletIndex = section[0].indexOf(leafletNode.node()),
+    storwaterIndex = section[0].indexOf(stormwaterNode.node()),
+    futureStorwaterIndex = section[0].indexOf(futureStormwaterNode.node()),
+    lorenzIndex = section[0].indexOf(lorenz.node());
+
+function refollow() {
+    followAnchor.style("top", (followIndex + (1 - mystack.scrollRatio()) / 2 - d3.event.offset) * 100 + "%");
+}
+
+function activate(d, i) {
+    if (i === followIndex) mystack.on("scroll.follow", refollow);
+    if (i === histogramIndex) histo();
+    if (i === leafletIndex) mapper();
+    if (i === storwaterIndex) buildStormwater(now, 'stormwater');
+    if (i === futureStorwaterIndex) buildStormwater(future, 'futureStormwater');
+    if (i === lorenzIndex) startLorenz();
+}
+
+function deactivate(d, i) {
+    if (i === followIndex) mystack.on("scroll.follow", null);
+    if (i === lorenzIndex) stopLorenz();
+}
+
+var lorenzInterval;
+
+function startLorenz() {
+    var δτ = 0.003,
+        ρ = 28,
+        σ = 10,
+        β = 8 / 3,
+        x = .5,
+        y = .5,
+        z = 10,
+        n = 30;
+
+    var width = 1280,
+        height = 720;
+
+    var canvas = d3.select("canvas")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("width", "100%")
+        .style("height", "100%")
+        .attr("width", width)
+        .attr("height", height);
+
+    var color = d3.scale.linear()
+        .domain([0, 20, 30, 50])
+        .range(["yellow", "orange", "brown", "purple"])
+        .interpolate(d3.interpolateHcl);
+
+    var context = canvas.node().getContext("2d");
+
+    context.lineWidth = .2;
+    context.fillStyle = "rgba(0,0,0,.03)";
+
+    d3.timer(function() {
+        context.save();
+        context.globalCompositeOperation = "lighter";
+        context.translate(width / 2, height / 2);
+        context.scale(12, 14);
+        context.rotate(30);
+        for (var i = 0; i < n; ++i) {
+            context.strokeStyle = color(z);
+            context.beginPath();
+            context.moveTo(x, y);
+            x += δτ * σ * (y - x);
+            y += δτ * (x * (ρ - z) - y);
+            z += δτ * (x * y - β * z);
+            context.lineTo(x, y);
+            context.stroke();
+        }
+        context.restore();
+        return !lorenzInterval;
+    });
+
+    lorenzInterval = setInterval(function() {
+        context.fillRect(0, 0, width, height);
+    }, 100);
+}
+
+function stopLorenz() {
+    lorenzInterval = clearInterval(lorenzInterval);
+}
+
+function buildStormwater(levelData, divy) {
+    console.log(levelData)
+    d3.select('#' + divy + "SVG").remove();
+
+    var formatPercentage = d3.format(".1%"),
+        formatLevel = d3.format(".1f");
+
+    var margin = {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    };
+
+    var svg = d3.select("#" + divy).append("svg").attr('id', divy + 'SVG');
+
+    var x = d3.scale.linear()
+        .domain([0, 300]);
+
+    var y = d3.scale.linear()
+        .domain([-2, 5]);
+
+    var lineFunction = d3.svg.line()
+        .x(function(d) {
+            return x(d.x);
+        })
+        .y(function(d) {
+            return y(d.y);
+        })
+        .interpolate("linear");
+
+    var surfaceData = [{
+        x: 0,
+        y: 5
+    }, {
+        x: 100,
+        y: 0
+    }, {
+        x: 225,
+        y: 0
+    }];
+
+    var obvertData = [{
+        x: 0,
+        y: 4.4
+    }, {
+        x: 100,
+        y: -0.6
+    }, {
+        x: 225,
+        y: -1.0
+    }];
+
+    var invertData = [{
+        x: 0,
+        y: 3.5
+    }, {
+        x: 100,
+        y: -1.5
+    }, {
+        x: 225,
+        y: -1.9
+    }];
+
+    var wallData = [{
+        x: 225,
+        y: -1.0
+    }, {
+        x: 225,
+        y: 1.6
+    }];
+
+    var ovalData = [];
+
+    var surface = svg.append('path')
+        .attr('class', 'surface');
+
+    var obvert = svg.append('path')
+        .attr('class', 'obvert');
+
+    var invert = svg.append('path')
+        .attr('class', 'invert');
+
+    var oval = svg.append('ellipse')
+        .attr('class', 'oval')
+
+    var wall = svg.append('path')
+        .attr('class', 'wall');
+
+    var levels = svg.selectAll('.levels')
+        .data(levelData).enter()
+        .append('line')
+        .attr('class', 'levels');
+
+    var levelText = svg.selectAll('.levelText')
+        .data(levelData).enter()
+        .append('text')
+        .attr('class', 'levelText');
+
+    resize();
+    d3.select(window).on('resize', resize);
+
+    function resize() {
+        var element = document.getElementById(divy);
+        var innerH = element.clientHeight,
+            innerW = element.clientWidth,
+            width = innerW - margin.left - margin.right,
+            height = innerH - margin.top - margin.bottom;
+
+        svg.attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        x.range([0, width]);
+        y.range([height, 0]);
+
+        surface.attr('d', lineFunction(surfaceData));
+        obvert.attr('d', lineFunction(obvertData));
+        invert.attr('d', lineFunction(invertData));
+        oval.attr('cx', x(225)).attr('cy', y(-1.45))
+            .attr('rx', 10).attr('ry', y(4.55))
+        wall.attr('d', lineFunction(wallData));
+
+        levels
+            .attr('x1', function(d) {
+                return x(d.x)
+            })
+            .attr('x2', function(d) {
+                return x(d.x + 10)
+            })
+            .attr('y1', function(d) {
+                return y(d.y)
+            })
+            .attr('y2', function(d) {
+                return y(d.y)
+            });
+
+        levelText.text(function(d) {
+                return formatLevel(d.y) + ' m AHD ' + d.label;
+            })
+            .attr("transform", function(d) {
+                return "translate(" + x(d.x + 12) + "," + y(d.y) + ")";
+            })
+            .style('font-size', 16)
+            .attr("dy", ".35em")
+            .attr("text-anchor", "start");
+
+    }
+};
+
+function histo() {
+    d3.select('#histoSVG').remove();
+    var formatPercentage = d3.format(".1%"),
+        formatLevel = d3.format(".1f");
+
+    var margin = {
+        top: 0,
+        right: 0,
+        bottom: 30,
+        left: 30
+    };
+
+    var svg = d3.select("#histogram").append("svg").attr('id', 'histoSVG'),
+        x = d3.scale.linear(),
+        y = d3.scale.linear();
+
+    var labels = svg.append("text").style('font-size', 16);
+
+    d3.csv('data/output.csv', function(error, output) {
+
+        var values = [];
+
+        output.forEach(function(d) {
+            var el = +d.x;
+            values.push(el);
+        })
+        var count = values.length;
+
+        var xExtents = d3.extent(values, function(d) {
+            return d;
+        });
+
+        x.domain(xExtents);
+
+        // Generate a histogram using twenty uniformly-spaced bins.
+        var data = d3.layout.histogram()
+            .bins(x.ticks(75))
+            (values);
+
+        var ysum = 0;
+
+        data.forEach(function(d) {
+            ysum = ysum + d.y;
+            d.ysum = ysum;
+        });
+
+        var ymax = d3.max(data, function(d) {
+            return d.y;
+        });
+
+        y.domain([0, ymax]);
+
+        var xAxis = d3.svg.axis()
+            .orient("bottom");
+
+        var renderAxis = svg.append("g")
+            .attr("class", "x axis");
+
+        var bar = svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr('fill', '#005581');
+
+        resize();
+        d3.select(window).on('resize', resize);
+
+        function resize() {
+            var element = document.getElementById('histogramSection');
+            var innerH = 0.6 * element.clientHeight,
+                innerW = 0.45 * element.clientWidth,
+                width = innerW - margin.left - margin.right,
+                height = innerH - margin.top - margin.bottom;
+
+            svg.attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            x.range([0, width]);
+            y.range([height, 0]);
+
+            labels.attr('x', 0.55 * width)
+                .attr('y', 0.15 * height)
+
+            bar.attr("x", 1)
+                .attr("width", x(xExtents[0] + data[0].dx) - 1)
+                .attr("height", function(d) {
+                    return height - y(d.y);
+                })
+                .attr('x', function(d) {
+                    return x(d.x)
+                })
+                .attr('y', function(d) {
+                    return y(d.y)
+                })
+                .on('mouseover', function(d) {
+                    d3.select(this).style('fill', '#E20177');
+                    labels.text(formatPercentage(d.ysum / count) + ' less than ' + formatLevel(d.x) + ' m AHD');
+                })
+                .on('mouseout', function(d) {
+                    d3.select(this).style('fill', '#005581');
+                });
+
+            xAxis.scale(x);
+            renderAxis.attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+        }
+    });
+}
+</script>
