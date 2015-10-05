@@ -606,7 +606,7 @@ a:hover {
     <ul>
         <li>Now (0 – 15 years)</li>
         <ul>
-            <li class="li_002">Planning Requirements (on site detention)</li>
+            <li class="li_002">Planning Controls (on site detention)</li>
             <li class="li_002">Integrate WSUD and IWCM measures into developments on public and Council land</li>
         </ul>
         <li>Medium Term (15 – 50 years)</li>
@@ -628,6 +628,8 @@ a:hover {
                 <ul>
                     <li class="li_002">Existing flooding overland (+ Yarra River levels)</li>
                     <li class="li_002">Source control measures are most effective</li>
+                    <li class="li_002">Planning Controls</li>
+                    <li class="li_002">Maintainence of infrastructure</li>
                 </ul>
                 <li>Interim Climate</li>
                 <ul>
@@ -640,7 +642,7 @@ a:hover {
             <ul>
                 <li class="li_002">Flooding dominated by levels Yarra River levels</li>
                 <li class="li_002">Source control measures remain effective</li>
-                <li class="li_002">Sea walls or barrage for the Yarra need to be considered</li>
+                <li class="li_002">Sea walls or barrage for the Yarra or heads need to be considered</li>
             </ul>
             </ul>
         </div>
@@ -658,37 +660,37 @@ a:hover {
 <script src="js/map.js"></script>
 <script>
 var now = [{
-    x: 230,
+    x: 225,
     y: 0.0,
     label: 'mean sea level'
 }, {
-    x: 230,
+    x: 225,
     y: 0.52,
     label: 'high tide'
 }, {
-    x: 230,
+    x: 225,
     y: 0.9,
     label: '100 year storm surge'
 }, {
-    x: 230,
+    x: 225,
     y: 1.6,
     label: '100 year Yarra River'
 }];
 
 var future = [{
-    x: 230,
+    x: 225,
     y: 0.8,
     label: 'mean sea level'
 }, {
-    x: 230,
+    x: 225,
     y: 1.36,
     label: 'high tide'
 }, {
-    x: 230,
+    x: 225,
     y: 2.04,
     label: '100 year storm surge'
 }, {
-    x: 230,
+    x: 225,
     y: 2.40,
     label: '100 year Yarra River'
 }];
@@ -794,7 +796,7 @@ function stopLorenz() {
 }
 
 function buildStormwater(levelData, divy) {
-    console.log(levelData)
+
     d3.select('#' + divy + "SVG").remove();
 
     var formatPercentage = d3.format(".1%"),
@@ -831,7 +833,7 @@ function buildStormwater(levelData, divy) {
         x: 100,
         y: 0
     }, {
-        x: 225,
+        x: 220,
         y: 0
     }];
 
@@ -858,10 +860,10 @@ function buildStormwater(levelData, divy) {
     }];
 
     var wallData = [{
-        x: 225,
+        x: 220,
         y: -1.0
     }, {
-        x: 225,
+        x: 220,
         y: 1.6
     }];
 
@@ -890,7 +892,8 @@ function buildStormwater(levelData, divy) {
     var levelText = svg.selectAll('.levelText')
         .data(levelData).enter()
         .append('text')
-        .attr('class', 'levelText');
+        .attr('class', 'levelText')
+        .style('font-size', '12px');
 
     resize();
     d3.select(window).on('resize', resize);
@@ -937,7 +940,7 @@ function buildStormwater(levelData, divy) {
             .attr("transform", function(d) {
                 return "translate(" + x(d.x + 12) + "," + y(d.y) + ")";
             })
-            .style('font-size', 16)
+            //.style('font-size', 16)
             .attr("dy", ".35em")
             .attr("text-anchor", "start");
 
