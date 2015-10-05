@@ -57,7 +57,7 @@ function stack() {
       .enter().append("div")
         .style("position", "absolute")
         .style("z-index", 10)
-        .style("left", 0)
+        .style("left", '3px')
         .style("width", "3px")
         .style("background", "linear-gradient(to top,black,white)");
 
