@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
-html, body, #map {
+#map {
 	height: 75%;
 	width: 75%;
 }
